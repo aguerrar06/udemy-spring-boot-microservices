@@ -8,6 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableFeignClients
 @EnableDiscoveryClient
+//@EnableCircuitBreaker
 public class SpringbootServicioItemsApplication {
 
 	public static void main(String[] args) {

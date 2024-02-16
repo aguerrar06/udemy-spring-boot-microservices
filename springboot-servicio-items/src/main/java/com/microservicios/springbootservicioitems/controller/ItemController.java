@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.microservicios.springbootservicioitems.entity.Item;
+import com.microservicios.springbootservicioitems.entity.Producto;
 import com.microservicios.springbootservicioitems.service.ItemService;
 
 @RestController
-@RequestMapping("/item")
+@RequestMapping("/items")
 public class ItemController {
 	
 	@Autowired
@@ -25,9 +26,23 @@ public class ItemController {
 		return itemService.findAll();
 	}
 
+	//@HystrixCommand(fallbackMethod = "metodoAlternativo")
 	@GetMapping("/ver/{id}/{cantidad}")
 	public Item detalle(@PathVariable Long id, @PathVariable Integer cantidad) {
 		return itemService.findById(id, cantidad);
 	}
+	
+	/*public Item metodoAlternativo(Long id, Integer cantidad) {
+		Item item = new Item();
+		Producto producto = new Producto();
+		
+		producto.setId(id);
+		producto.setNombre("Producto de Auxilio");
+		producto.setPrecio(500.00);
+		item.setCantidad(cantidad);
+		item.setProducto(producto);
+		
+		return item;
+	}*/
 	
 }

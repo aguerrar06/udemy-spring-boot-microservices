@@ -11,10 +11,10 @@ import com.microservicios.springbootservicioitems.entity.Producto;
 @FeignClient(name = "servicio-productos")
 public interface ProductoClienteRest {
 
-	@GetMapping("/listar")
+	@GetMapping("/productos/listar")
 	public List<Producto> listar();
 	
-	@GetMapping("/ver/{id}")
+	@GetMapping("/productos/ver/{id}")
 	public Producto detalle(@PathVariable Long id);
 	
 }
