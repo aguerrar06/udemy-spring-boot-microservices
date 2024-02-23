@@ -1,17 +1,26 @@
 spring:
   cloud:
     gateway:
-      mvc:
-        routes:
+      routes:
         - id: servicio-productos
           uri: lb://servicio-productos
           predicates:
-            - Path=/api/productos/**
+            - Path=/api/**
           filters:
-            - StripPrefix=2
+            - StripPrefix=1
         - id: servicio-items
           uri: lb://servicio-items
           predicates:
-            - Path=/api/items/**
+            - Path=/api/**
           filters:
-            - StripPrefix=2
+            - StripPrefix=1
+  application:
+    name: servicio-gateway-server
+
+server:
+  port: 8090
+            
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
