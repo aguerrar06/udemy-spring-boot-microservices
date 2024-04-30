@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import com.microservicios.springbootserviciocommons.models.Producto;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
